@@ -55,8 +55,8 @@ const HTMLcaller = (value) => {
   let followingCount =   $('a[href*="following"] > span.text-bold.color-fg-default').text().trim();
   setFollowerCount(followerCount)
   setFollowingCount(followingCount)
-  // console.log(followerCount);
-  // console.log(followingCount);
+  console.log(followerCount);
+  console.log(followingCount);
 
   return {
     followerCount,
