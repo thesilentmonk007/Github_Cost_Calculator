@@ -26,7 +26,7 @@ useEffect(()=>{
   let config = {
     method: 'get',
     maxBodyLength: Infinity,
-    url: `https://cors-anywhere.herokuapp.com/https://github.com/${link}`,
+    url: `/api/${link}`,
     headers: {
       // Use your GitHub token if necessary
 'Cookie': '_octo=GH1.1.182094238.1716735801; logged_in=no'  
@@ -55,8 +55,8 @@ const HTMLcaller = (value) => {
   let followingCount =   $('a[href*="following"] > span.text-bold.color-fg-default').text().trim();
   setFollowerCount(followerCount)
   setFollowingCount(followingCount)
-  console.log(followerCount);
-  console.log(followingCount);
+  // console.log(followerCount);
+  // console.log(followingCount);
 
   return {
     followerCount,
@@ -129,7 +129,9 @@ setTotal(total)
 
   return (
     <>
-      <h1 className='flex justify-center text-4xl relative top-8 font-extrabold text-white'> <i className="githubLogo" class="fa-brands fa-github"></i>  <p className='relative left-7'>Value Calculator</p></h1>
+      <h1 className='flex value-head justify-center text-4xl relative top-8 font-extrabold text-white'>
+      <i className="githubLogo fa-brands fa-github"></i>  
+      <p className='relative left-7 '>Value Calculator</p></h1>
       <div className='relative Input-box'>
         <input placeholder='Enter your Github userName' className='p-2' onChange={(e)=>setUrl(e.target.value)}></input>
         <button onClick={callerFunction} className='bg-green-500 w-36 btn text-white font-medium'>Submit</button>
@@ -138,11 +140,11 @@ setTotal(total)
       {/* <h1>{followingCount}</h1><br></br>
       <h1>{followerCount}</h1> */}
       <div className='flex flex-col p-8 bg-black main-box'>
-         <h1  className='text-black flex justify-center text-4xl'>Results</h1>
-         <ul className='results text-black relative top-14 space-y-7 text-3xl'>
+         <h1  className='text-black flex justify-center text-4xl second-head'>Results</h1>
+         <ul className='results text-black relative top-14 space-y-7 text-3xl followerHead'>
            <li>Your Followers : {followerCount}</li>
            <li>Your Following : {followingCount}</li>
-           <li className='text-xl'>Your Github Cost : <span className='text-xl'>₹ {totalNumber}</span></li>
+           <li className='text-xl cost-text'>Your Github Cost : <span className='text-xl'>₹ {totalNumber}</span></li>
            {/* <li></li> */}
          </ul>
       </div>
