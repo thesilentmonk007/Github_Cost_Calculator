@@ -1,5 +1,18 @@
 {
-   "rewrites":  [
-       {"source": "/(.*)", "destination": "/index.html"}
-    ]
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/github/**",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "frontend/github/out"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "frontend/github/$1"
+    }
+  ]
 }
